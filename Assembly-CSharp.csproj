@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scenes\scripts\RocketMovement.cs" />
+     <Compile Include="Assets\Scenes\scripts\CollisionHandler.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity 2020.3.25f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -636,6 +637,12 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>C:\Users\Yash Mathur\Rocket_booster\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+        <HintPath>C:\Users\Yash Mathur\Rocket_booster\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+        <HintPath>C:\Users\Yash Mathur\Rocket_booster\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

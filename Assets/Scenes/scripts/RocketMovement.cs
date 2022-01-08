@@ -7,12 +7,14 @@ public class RocketMovement : MonoBehaviour
     [SerializeField] float mainThrust;
     [SerializeField] float rotationThrust;
     Rigidbody rigidbody;
+    AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         mainThrust = 500f;
-        rotationThrust = 20f;
+        rotationThrust = 60f;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,14 @@ public class RocketMovement : MonoBehaviour
     void ProcessThrust(){
         if (Input.GetKey(KeyCode.Space)){
             rigidbody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+            if(!audio.isPlaying){
+                audio.Play();
+            }
+            
+        } else {
+            if(audio.isPlaying){
+                audio.Stop();
+            }
         }
     }
 
