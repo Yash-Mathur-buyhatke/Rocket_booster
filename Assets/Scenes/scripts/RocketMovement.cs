@@ -12,7 +12,7 @@ public class RocketMovement : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        mainThrust = 500f;
+        mainThrust = 800f;
         rotationThrust = 60f;
         audio = GetComponent<AudioSource>();
     }
