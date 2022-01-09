@@ -1086,24 +1086,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3049198381791992509, guid: f1a26fdeb52064d4facec7c180c8d5c7, type: 3}
   m_PrefabInstance: {fileID: 3049198382000702111}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &945835719 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1956311669161216587, guid: c8d03a96ec874f24fa0ea3cf15d89bcd, type: 3}
-  m_PrefabInstance: {fileID: 1963474922}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &945835725
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945835719}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 23.57891, y: 43.67597, z: 23.578918}
-  m_Center: {x: 0, y: 21.837965, z: 0}
 --- !u!4 &953959096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1931434626974286081, guid: 27e54b382e176b748b31c2fed018baa9, type: 3}
@@ -1902,6 +1884,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3049198380779344680, guid: f1a26fdeb52064d4facec7c180c8d5c7, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049198380779344680, guid: f1a26fdeb52064d4facec7c180c8d5c7, type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3049198381791992450, guid: f1a26fdeb52064d4facec7c180c8d5c7, type: 3}
       propertyPath: m_Name
       value: Rocket
@@ -1950,8 +1940,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3049198381791992449, guid: f1a26fdeb52064d4facec7c180c8d5c7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1a26fdeb52064d4facec7c180c8d5c7, type: 3}
 --- !u!1001 &4203563614845718319
 PrefabInstance:
@@ -1966,7 +1955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203563615544615183, guid: e2b7366378f2d874e87082fda0eae95d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.13
+      value: -25.6
       objectReference: {fileID: 0}
     - target: {fileID: 4203563615544615183, guid: e2b7366378f2d874e87082fda0eae95d, type: 3}
       propertyPath: m_LocalPosition.y

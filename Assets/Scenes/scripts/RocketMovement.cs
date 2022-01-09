@@ -8,6 +8,7 @@ public class RocketMovement : MonoBehaviour
     [SerializeField] float rotationThrust;
     Rigidbody rigidbody;
     AudioSource audio;
+    [SerializeField] AudioClip thrustAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,7 @@ public class RocketMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space)){
             rigidbody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
             if(!audio.isPlaying){
-                audio.Play();
+                audio.PlayOneShot(thrustAudio);
             }
             
         } else {
