@@ -24,8 +24,8 @@ public class ThootedBladesScript : MonoBehaviour
         if(rawSineWav <= Mathf.Epsilon){
             return;
         }
-        movementFactor = (rawSineWav + 1f) / 12f;
+        movementFactor = (rawSineWav + 1f) / 9f;
         Debug.Log(movementFactor);
-        Object.position = startingPosition + new Vector3(0,(movementFactor * 90),0);
+        Object.position = startingPosition + new Vector3(0,(movementFactor * 30),0);
     }
 }
