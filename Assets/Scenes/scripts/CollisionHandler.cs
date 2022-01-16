@@ -12,6 +12,7 @@ public class CollisionHandler : MonoBehaviour
 
     [SerializeField] AudioClip collisionAudio;
     [SerializeField] ParticleSystem successParticles;
+
     [SerializeField] AudioClip levelCompleteAudio;
     void Start()
     {
@@ -20,48 +21,49 @@ public class CollisionHandler : MonoBehaviour
     // Start is called before the first frame update
     void OnCollisionEnter(Collision other)
     {
-        if(isAlive){
-            switch (other.gameObject.tag)
+        if (isAlive)
         {
-            case "Fuel":
-                Debug.Log("Phew thanks for fuel!!");
-                break;
-            case "Obstacle":
-                GetComponent<RocketMovement>().enabled = false;
+            switch (other.gameObject.tag)
+            {
+                case "Fuel":
+                    Debug.Log("Phew thanks for fuel!!");
+                    break;
+                case "Obstacle":
+                    GetComponent<RocketMovement>().enabled = false;
 
-                if (audio.isPlaying)
-                {
-                    audio.Stop();
-                    audio.PlayOneShot(collisionAudio);
+                    if (audio.isPlaying)
+                    {
+                        audio.Stop();
+                        audio.PlayOneShot(collisionAudio);
 
-                }
-                else
-                {
-                    audio.PlayOneShot(collisionAudio);
-                }  // taking controls from user to operate rocket
-                isAlive = false;
-                Invoke("ReloadLevel", 3f);   // Invoke calls a function after specified amount of time
-                break;
-            case "Finish":
-                Debug.Log("Hurray Completed!!");
-                GetComponent<RocketMovement>().enabled = false;
-                isAlive = false;
-                successParticles.Play();
-                if (audio.isPlaying)
-                {
-                    audio.Stop();
-                    audio.PlayOneShot(levelCompleteAudio);
-                }
-                else
-                {
-                    audio.PlayOneShot(levelCompleteAudio);   // taking controls from user to operate rocket
-                    
-                }
-                Invoke("NextLevel", 1f); // 1f denotes after 1 sec this NextLevel function will be called
-                break;
+                    }
+                    else
+                    {
+                        audio.PlayOneShot(collisionAudio);
+                    }  // taking controls from user to operate rocket
+                    isAlive = false;
+                    Invoke("ReloadLevel", 3f);   // Invoke calls a function after specified amount of time
+                    break;
+                case "Finish":
+                    Debug.Log("Hurray Completed!!");
+                    GetComponent<RocketMovement>().enabled = false;
+                    isAlive = false;
+                    successParticles.Play();
+                    if (audio.isPlaying)
+                    {
+                        audio.Stop();
+                        audio.PlayOneShot(levelCompleteAudio);
+                    }
+                    else
+                    {
+                        audio.PlayOneShot(levelCompleteAudio);   // taking controls from user to operate rocket
+
+                    }
+                    Invoke("NextLevel", 1f); // 1f denotes after 1 sec this NextLevel function will be called
+                    break;
 
 
-        }
+            }
         }
     }
     void ReloadLevel()

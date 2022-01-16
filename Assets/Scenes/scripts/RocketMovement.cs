@@ -5,7 +5,13 @@ using UnityEngine;
 public class RocketMovement : MonoBehaviour
 {
     [SerializeField] float mainThrust;
-    [SerializeField] float rotationThrust;
+    [SerializeField] float thrustPower;
+
+    [SerializeField] ParticleSystem thrustParticles;
+    [SerializeField] ParticleSystem leftWingParticles;
+    [SerializeField] ParticleSystem rightWingParticles;
+
+
     Rigidbody rigidbody;
     AudioSource audio;
     [SerializeField] AudioClip thrustAudio;
@@ -14,7 +20,7 @@ public class RocketMovement : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         mainThrust = 800f;
-        rotationThrust = 60f;
+        thrustPower = 60f;
         audio = GetComponent<AudioSource>();
     }
 
@@ -25,34 +31,71 @@ public class RocketMovement : MonoBehaviour
         ProcessRotation();
     }
 
-    void ProcessThrust(){
-        if (Input.GetKey(KeyCode.Space)){
+    void ProcessThrust()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
             rigidbody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-            if(!audio.isPlaying){
+            if (!audio.isPlaying)
+            {
                 audio.PlayOneShot(thrustAudio);
             }
-            
-        } else {
-            if(audio.isPlaying){
+            if (!thrustParticles.isPlaying)
+            {
+                thrustParticles.Play();
+
+            }
+            if (!leftWingParticles.isPlaying)
+            {
+                leftWingParticles.Play();
+
+            }
+            if (!rightWingParticles.isPlaying)
+            {
+                rightWingParticles.Play();
+
+        }
+        }
+        else
+        {
+            if (audio.isPlaying)
+            {
                 audio.Stop();
+            }
+            if (thrustParticles.isPlaying)
+            {
+                thrustParticles.Stop();
+
+            }
+            if (leftWingParticles.isPlaying)
+            {
+                leftWingParticles.Stop();
+
+            }
+            if (rightWingParticles.isPlaying)
+            {
+                rightWingParticles.Stop();
+
             }
         }
     }
 
-    void ProcessRotation(){
-        if (Input.GetKey(KeyCode.A)){
+    void ProcessRotation()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
             Debug.Log("Rotating to Left");
             // rigidbody.freezeRotation = true;
-            transform.Rotate(Vector3.forward * rotationThrust * Time.deltaTime); // denotes (0,0,1)
+            transform.Rotate(Vector3.forward * thrustPower * Time.deltaTime); // denotes (0,0,1)
             // rigidbody.freezeRotation = false;
 
         }
-        if (Input.GetKey(KeyCode.D)){
+        if (Input.GetKey(KeyCode.D))
+        {
             Debug.Log("Rotating to Right");
             // rigidbody.freezeRotation = true;
-            transform.Rotate(-Vector3.forward * rotationThrust * Time.deltaTime); // denotes (0,0,-1)
+            transform.Rotate(-Vector3.forward * thrustPower * Time.deltaTime); // denotes (0,0,-1)
             // rigidbody.freezeRotation = true;
         }
     }
 }
-    
